@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>Portfolio | Mohamed Adham</title>
+    <meta name="author" content="Mohamed Adham">
+    <meta name="description" content="Portfolio of Mohamed Adham — Senior Quality Control Engineer & Software Testing Trainee.">
+
+    <!-- Bootstrap and Icons -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.15.4/css/all.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&family=Roboto+Slab:wght@700&display=swap" rel="stylesheet">
+    <link rel="shortcut icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext y='.9em' font-size='90'%3E🚀%3C/text%3E%3C/svg%3E">
+
+    <style>
+      :root {
+        --bg-color: #F0F2F5;
+        --text-color: #495057;
+        --heading-color: #212529;
+        --theme-color: #0056b3;
+        --card-bg-color: #FFFFFF;
+        --card-border-color: #E0E0E0;
+        --navbar-bg-color: rgba(255, 255, 255, 0.9);
+        --shadow-color: rgba(0, 0, 0, 0.08);
+        --glow-color: rgba(0, 86, 179, 0.2);
+        --accent-gradient: linear-gradient(135deg, #1e3a8a 0%, #3b82f6 100%);
+        --hero-text-color: #FFFFFF;
+        --social-icon-color: #6c757d;
+      }
+
+      html[data-theme='dark'] {
+        --bg-color: #0f172a;
+        --text-color: #cbd5e1;
+        --heading-color: #f8fafc;
+        --theme-color: #38bdf8;
+        --card-bg-color: #1e293b;
+        --card-border-color: #334155;
+        --navbar-bg-color: rgba(15, 23, 42, 0.9);
+        --shadow-color: rgba(0, 0, 0, 0.4);
+        --glow-color: rgba(56, 189, 248, 0.2);
+        --accent-gradient: linear-gradient(135deg, #0f172a 0%, #1e3a8a 100%);
+        --hero-text-color: #FFFFFF;
+        --social-icon-color: #94a3b8;
+      }
+
+      body {
+        font-family: 'Inter', sans-serif;
+        background-color: var(--bg-color);
+        color: var(--text-color);
+        padding-top: 80px;
+        transition: background-color 0.4s ease, color 0.4s ease;
+      }
+
+      h1, h2, h3, h4, h5, h6 { font-family: 'Roboto Slab', serif; color: var(--heading-color); }
+      a { color: var(--theme-color); transition: 0.3s; }
+      a:hover { text-decoration: none; filter: brightness(1.2); }
+
+      /* Navbar */
+      .navbar {
+        background-color: var(--navbar-bg-color);
+        backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px);
+        border-bottom: 1px solid var(--card-border-color); padding: 0.75rem 1rem;
+      }
+      .navbar-brand { font-weight: 700; color: var(--heading-color) !important; }
+      .nav-link { font-weight: 500; color: var(--text-color) !important; }
+
+      /* Theme Toggle */
+      .theme-toggle-btn {
+        background: transparent; border: 1px solid var(--card-border-color); color: var(--heading-color);
+        width: 35px; height: 35px; border-radius: 50%; cursor: pointer; display: flex; align-items: center; justify-content: center;
+      }
+      .theme-toggle-btn .fa-sun { display: none; }
+      html[data-theme='dark'] .theme-toggle-btn .fa-sun { display: block; }
+      html[data-theme='dark'] .theme-toggle-btn .fa-moon { display: none; }
+
+      /* Hero Section */
+      .post-header { margin-bottom: 3rem; padding: 2rem 0; }
+      .post-title { font-size: 3.2rem; font-weight: 800; margin-bottom: 0.5rem; }
+      .desc { font-size: 1.3rem; opacity: 0.8; }
+
+      /* Profile Layout */
+      .profile-section { display: flex; align-items: flex-start; gap: 2rem; flex-wrap: wrap; margin-bottom: 3rem; }
+      .profile-image-container { 
+        width: 200px; height: 200px; border-radius: 20px; overflow: hidden; 
+        box-shadow: 0 10px 30px var(--shadow-color); border: 4px solid var(--card-bg-color);
+      }
+      .profile-pic { width: 100%; height: 100%; object-fit: cover; }
+      
+      .about-me-card {
+        flex: 1; min-width: 300px; background: var(--accent-gradient); border-radius: 20px; 
+        padding: 2rem; color: #fff; box-shadow: 0 10px 30px var(--shadow-color);
+      }
+      .about-me-card h6 { color: #fff; font-size: 1.4rem; margin-bottom: 1rem; }
+      .about-me-card ul { list-style: none; padding: 0; }
+      .about-me-card li { margin-bottom: 0.7rem; display: flex; align-items: center; }
+      .about-me-card li i { margin-right: 10px; font-size: 0.9rem; }
+
+      /* Content Cards */
+      .content-section h4 { margin-bottom: 2rem; border-left: 5px solid var(--theme-color); padding-left: 15px; }
+      .info-card {
+        background: var(--card-bg-color); border: 1px solid var(--card-border-color); 
+        border-radius: 15px; padding: 1.5rem; height: 100%; transition: 0.3s;
+      }
+      .info-card:hover { transform: translateY(-5px); box-shadow: 0 10px 20px var(--shadow-color); }
+      .info-icon { font-size: 2rem; color: var(--theme-color); margin-bottom: 1rem; }
+
+      footer { text-align: center; padding: 3rem 0; border-top: 1px solid var(--card-border-color); margin-top: 3rem; }
+      .social-links a { font-size: 1.8rem; margin: 0 10px; color: var(--social-icon-color); }
+      .social-links a:hover { color: var(--theme-color); }
+
+      @media (max-width: 768px) { .post-title { font-size: 2.2rem; } .profile-section { justify-content: center; } }
+    </style>
+</head>
+<body>
+
+    <nav class="navbar navbar-expand-lg fixed-top">
+        <div class="container">
+            <a class="navbar-brand" href="#">Mohamed Adham</a>
+            <div class="ml-auto d-flex align-items-center">
+                <button class="theme-toggle-btn mr-3" id="theme-toggle">
+                    <i class="fas fa-moon"></i><i class="fas fa-sun"></i>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarNav">
+                    <ul class="navbar-nav">
+                        <li class="nav-item"><a class="nav-link" href="#about">About</a></li>
+                        <li class="nav-item"><a class="nav-link" href="#experience">Experience</a></li>
+                        <li class="nav-item"><a class="nav-link" href="#skills">Skills</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <main class="container">
+        <header class="post-header" id="about">
+            <h1 class="post-title">Mohamed <b>Adham</b></h1>
+            <p class="desc">Senior Quality Control Engineer & Software Testing Specialist</p>
+        </header>
+
+        <section class="profile-section">
+            <div class="profile-image-container">
+                <!-- AUTOMATIC GITHUB PHOTO - Update 'MohamedAdham2097' to your exact GitHub Username -->
+                <img class="profile-pic" src="https://github.com/MohamedAdham2097.png" alt="Mohamed Adham">
+            </div>
+            <div class="about-me-card">
+                <h6><i class="fas fa-rocket"></i> Summary</h6>
+                <p>Senior Quality Control Engineer with strong manufacturing experience and a growing focus on Software Testing. Trainee in the DEPI program focusing on Java and Automation.</p>
+                <ul>
+                    <li><i class="fas fa-check"></i> ISTQB Foundation Level Trainee</li>
+                    <li><i class="fas fa-check"></i> Java Fundamentals & OOP Specialist</li>
+                    <li><i class="fas fa-check"></i> Expert in Power BI Quality Reporting</li>
+                </ul>
+            </div>
+        </section>
+
+        <section class="content-section" id="experience">
+            <h4>Professional Experience</h4>
+            <div class="row">
+                <div class="col-md-12 mb-4">
+                    <div class="info-card">
+                        <div class="d-flex justify-content-between flex-wrap">
+                            <h5>Senior Quality Control Engineer — El-Araby Group</h5>
+                            <span class="text-muted">2021 – Present</span>
+                        </div>
+                        <ul class="mt-3">
+                            <li>Led quality control activities and established a new factory.</li>
+                            <li>Conducted root cause analysis and quality inspections.</li>
+                            <li>Created automated dashboards using Power BI and Excel.</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-md-12 mb-4">
+                    <div class="info-card">
+                        <div class="d-flex justify-content-between flex-wrap">
+                            <h5>Automation Engineer — Mach-Tech Company</h5>
+                            <span class="text-muted">2020 – 2021</span>
+                        </div>
+                        <p class="mt-3">Designed industrial control systems and worked with PLC / Classic control systems.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="content-section" id="skills">
+            <h4>Technical Skills</h4>
+            <div class="row">
+                <div class="col-md-4 mb-4">
+                    <div class="info-card text-center">
+                        <i class="fas fa-bug info-icon"></i>
+                        <h5>Testing</h5>
+                        <p class="small">SDLC, Test Case Design, Bug Reporting, ISTQB v4</p>
+                    </div>
+                </div>
+                <div class="col-md-4 mb-4">
+                    <div class="info-card text-center">
+                        <i class="fas fa-chart-line info-icon"></i>
+                        <h5>Data / BI</h5>
+                        <p class="small">Power BI, DAX, Data Modeling, Minitab, Excel</p>
+                    </div>
+                </div>
+                <div class="col-md-4 mb-4">
+                    <div class="info-card text-center">
+                        <i class="fas fa-code info-icon"></i>
+                        <h5>Programming</h5>
+                        <p class="small">Java Fundamentals, OOP, PLC Programming</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="content-section">
+            <div class="row">
+                <div class="col-md-6 mb-4">
+                    <div class="info-card">
+                        <h5><i class="fas fa-graduation-cap mr-2"></i> Education</h5>
+                        <p class="mb-0"><b>B.Sc. in Electrical Engineering</b></p>
+                        <p class="small text-muted">Higher Technology Institute (HTI) | 2015 - 2020</p>
+                    </div>
+                </div>
+                <div class="col-md-6 mb-4">
+                    <div class="info-card">
+                        <h5><i class="fas fa-certificate mr-2"></i> Certifications</h5>
+                        <p class="small mb-1">Lean Six Sigma (Green & White Belt)</p>
+                        <p class="small mb-1">Power BI Fundamentals</p>
+                        <p class="small mb-1">DEPI Program Trainee</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="social-links mb-3">
+            <a href="https://www.linkedin.com/in/mohamedadham-4732541b9/" target="_blank"><i class="fab fa-linkedin"></i></a>
+            <a href="mailto:MohamedAdham2097@gmail.com"><i class="fas fa-envelope"></i></a>
+            <a href="https://github.com/MohamedAdham2097" target="_blank"><i class="fab fa-github"></i></a>
+        </div>
+        <p>© 2025 Mohamed Adham | Cairo, Egypt</p>
+    </footer>
+
+    <script>
+        const themeToggle = document.getElementById('theme-toggle');
+        const html = document.documentElement;
+        themeToggle.addEventListener('click', () => {
+            const current = html.getAttribute('data-theme');
+            const target = current === 'dark' ? 'light' : 'dark';
+            html.setAttribute('data-theme', target);
+            localStorage.setItem('theme', target);
+        });
+        const savedTheme = localStorage.getItem('theme') || 'light';
+        html.setAttribute('data-theme', savedTheme);
+    </script>
+</body>
+</html>
